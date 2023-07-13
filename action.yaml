@@ -1,0 +1,28 @@
+name: 'Helm Chart Build'
+description: 'Package and Push a helm chart to a Chartmuseum repo'
+inputs:
+  REPO_NAME:
+    description: 'Name of repository'
+    required: true
+    default: ''
+  CHART_SUBDIR:
+    description: 'Name of the subdirectory in the repository'
+    required: true
+  HELM_REPO_URL:
+    description: 'URL of the repository to push to'
+    required: true
+  UPDATE_DEPENDENCIES:
+    description: 'Update Helm Dependencies'
+    required: false
+    default: 'true'
+outputs:
+  message:
+    description: 'Response from chartmuseum'
+runs:
+  using: docker
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.REPO_NAME }}
+    - ${{ inputs.CHART_SUBDIR }}
+    - ${{ inputs.HELM_REPO_URL }}
+    - ${{ inputs.UPDATE_DEPENDENCIES }}
