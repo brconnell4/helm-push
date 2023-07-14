@@ -6,7 +6,7 @@ helm repo add stable https://charts.helm.sh/stable
 if [ "${INPUT_UPDATE_DEPENDENCIES}" = "false" ]; then
   helm package --version="${INPUT_HELM_TAG}" --app-version="${INPUT_HELM_TAG}" "${INPUT_CHART_SUBDIR}"/.
 else
-  helm package -u --version="${INPUT_INPUT_HELM_TAG}" --app-version="${INPUT_HELM_TAG}" "${INPUT_CHART_SUBDIR}"/.
+  helm package -u --version="${INPUT_HELM_TAG}" --app-version="${INPUT_HELM_TAG}" "${INPUT_CHART_SUBDIR}"/.
 fi
 
 ls -la
