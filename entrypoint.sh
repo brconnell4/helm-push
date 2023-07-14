@@ -1,6 +1,7 @@
 #!/bin/sh -l
 
-echo ${REPO_NAME} ${HELM_REPO_URL}
+echo RepoName: "${REPO_NAME}"
+echo RepoURL "${HELM_REPO_URL}"
 ls -la
 pwd
 
