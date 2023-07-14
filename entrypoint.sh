@@ -4,6 +4,12 @@ echo RepoName: "${REPO_NAME}"
 echo RepoURL "${HELM_REPO_URL}"
 echo CHART_SUBDIR "${CHART_SUBDIR}"
 echo HELM_TAG "${HELM_TAG}"
+
+
+echo RepoName: ${REPO_NAME}
+echo RepoURL ${HELM_REPO_URL}
+echo CHART_SUBDIR ${CHART_SUBDIR}
+echo HELM_TAG ${HELM_TAG}
 ls -la
 pwd
 
