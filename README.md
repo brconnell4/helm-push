@@ -6,7 +6,7 @@ This actions Packages and pushes a helm chart to the AAA Chartmuseum repo
 
 ### REPO_NAME
     - Description: Name of the Chartmuseum Repo
-    - Default: aaadigital
+    - Default: 
 
 ### CHART_SUBDIR
 
