@@ -15,8 +15,11 @@ inputs:
     description: 'Update Helm Dependencies'
     required: false
     default: 'true'
+  HELM_TAG:
+    description: 'Tag for the packaged helm chart'
+    required: true
 outputs:
-  message:
+  RESPONSE:
     description: 'Response from chartmuseum'
 runs:
   using: docker
@@ -26,3 +29,4 @@ runs:
     - ${{ inputs.CHART_SUBDIR }}
     - ${{ inputs.HELM_REPO_URL }}
     - ${{ inputs.UPDATE_DEPENDENCIES }}
+    - ${{ inputs.HELM_TAG }}
