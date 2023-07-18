@@ -9,8 +9,6 @@ else
   helm package -u --version="${INPUT_HELM_TAG}" --app-version="${INPUT_HELM_TAG}" "${INPUT_CHART_SUBDIR}"/.
 fi
 
-ls -la
-
 RESPONSE=$(curl --data-binary "@${INPUT_CHART_SUBDIR}-${INPUT_HELM_TAG}.tgz" "${INPUT_HELM_REPO_URL}"/api/charts)
 echo "$RESPONSE"
 
