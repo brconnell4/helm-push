@@ -1,0 +1,42 @@
+name: Calculate Version
+on:
+  workflow_call:
+    secrets:
+      prod:
+
+jobs:
+  calculate_version:
+    runs-on: self-hosted
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+        #TODO Convert to Custom Actions Container to handle all three tasks
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0
+        with:
+          versionSpec: '5.x'
+
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v0
+
+      - name: Branch name
+        run: |
+          echo "BRANCH_NAME=$(echo '${{ github.head_ref }}' | sed 's/features\///')" >> $GITHUB_ENV
+
+      - name: Write outputs to file
+        run: |
+          if [[ "${{ secrets.prod }}"  ]]; then
+            echo "${{ env.GITVERSION_MAJORMINORPATCH }}" > .tags
+          else
+            echo "${{ env.GITVERSION_MAJORMINORPATCH }}-${{ env.BRANCH_NAME }}.${{ env.GITVERSION_PRERELEASENUMBER }}" > .tags
+          fi
+
+      - name: Upload output file
+        uses: actions/upload-artifact@v2
+        with:
+          name: tags
+          path: .tags
