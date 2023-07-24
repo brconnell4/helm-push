@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-helm repo add ${INPUT_REPO_NAME} ${INPUT_HELM_REPO_URL}
+helm repo add "${INPUT_REPO_NAME}" "${INPUT_HELM_REPO_URL}"
 helm repo add stable https://charts.helm.sh/stable
 
 if [ "${INPUT_UPDATE_DEPENDENCIES}" = "false" ]; then

@@ -10,3 +10,5 @@ inputs:
 outputs:
   VERSION:
     description: 'The version determined by GitVersion'
+  GIT_VERSION:
+    description: 'The version determined by GitVersion'
