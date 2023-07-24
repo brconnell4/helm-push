@@ -1,26 +1,7 @@
 #!/bin/bash -l
 
-# Exit immediately if a command exits with a non-zero status
-set -e
-
-# Echoes all commands before executing.
-set -v
-set -x
-
-# Check if required dependencies are installed and accessible.
-echo "GitVersion version:"
-gitversion --version
-
-echo "sed version:"
-sed --version
-
 ls -la
-pwd
 
-
-# Determine the version using GitVersion
-GITVERSION_JSON=$(gitversion /output json /showvariable NuGetVersionV2)
-echo "$GITVERSION_JSON"
 
 # Extract branch name from Github environment variable
 BRANCH_NAME=$(echo "$GITHUB_HEAD_REF" | sed 's/features\///')
