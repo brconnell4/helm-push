@@ -6,6 +6,9 @@ set -e
 # Echoes all commands before executing.
 set -v
 
+ls -la
+pwd
+
 # Determine the version using GitVersion
 GITVERSION_JSON=$(gitversion /output json /showvariable NuGetVersionV2)
 echo "$GITVERSION_JSON"
