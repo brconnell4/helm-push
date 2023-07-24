@@ -6,8 +6,16 @@ set -e
 # Echoes all commands before executing.
 set -v
 
+# Check if required dependencies are installed and accessible.
+echo "GitVersion version:"
+gitversion --version
+
+echo "sed version:"
+sed --version
+
 ls -la
 pwd
+
 
 # Determine the version using GitVersion
 GITVERSION_JSON=$(gitversion /output json /showvariable NuGetVersionV2)
