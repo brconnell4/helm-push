@@ -4,10 +4,9 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
 inputs:
-  prod:
+  PROD:
     description: 'Flag indicating whether production is true'
-    required: true
     default: 'false'
 outputs:
-  version:
+  VERSION:
     description: 'The version determined by GitVersion'
