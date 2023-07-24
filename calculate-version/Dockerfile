@@ -7,8 +7,9 @@ RUN apt-get update && apt-get install -y \
     jq
 
 RUN dotnet tool install --global GitVersion.Tool
+RUN ln -s /root/.dotnet/tools/dotnet-gitversion /usr/bin/gitversion
 RUN chmod +x /entrypoint.sh
 
 ENV PATH="${PATH}:/root/.dotnet/tools"
 
-ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/entrypoint.sh"]
