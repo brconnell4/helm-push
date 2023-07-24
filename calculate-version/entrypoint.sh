@@ -5,6 +5,7 @@ set -e
 
 # Echoes all commands before executing.
 set -v
+set -x
 
 # Check if required dependencies are installed and accessible.
 echo "GitVersion version:"
